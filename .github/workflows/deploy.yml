@@ -29,7 +29,15 @@ jobs:
           echo "두 번째 줄"
           echo "세 번째 줄"
       - name: Github Actions 자체에 저장되어있는 변수 사용하기
+      # Github Actions에는 여러가지 변수들이 미리 정의되어 있음
+      # 이 변수들은 $로 시작함
+      # GITHUB_SHA: 현재 Commit의 SHA 값
+      # GITHUB_REPOSITORY: 현재 Repository의 이름
         run: |
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
+      - name: Github Actions에 저장되어있는 환경 변수 사용하기
+        run: |
+          echo ${{ secrets.MY_HOBBY }}
+          echo ${{ secrets.MY_NAME }}
       
